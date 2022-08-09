@@ -1,6 +1,6 @@
 # rmhighlightextractor
  
-rmhighlightextractor is a Python script that can be used to extract highlights from PDFs downloaded from the ReMarkable Cloud API.
+rmhighlightextractor is a Python script that can be used to extract highlights from PDFs downloaded from the ReMarkable Cloud API. Tested with Python version 3.10.5.
 
 App is tested using ZIP files downloaded from the API using rMAPI located here: https://github.com/juruen/rmapi. They have extensive documentation on how to setup rMAPI and examples of how to download files.
 
