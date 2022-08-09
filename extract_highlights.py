@@ -24,15 +24,9 @@ def main():
         print(args.root_dir, " is not a valid directory, exiting...")
         exit()
 
-    #print(args)
-
-    #print("Hello!!!")
-
     rootdir = args.root_dir
-
     myDocuments = []
     normalizedDocuments = []
-
     for subdir, dirs, files in os.walk(rootdir):
         for file in files:
             # Check out the zips for the highlights
@@ -64,8 +58,6 @@ def main():
 
                             # Read the higlights files to process them through
                             highlightJson = json.load(currZip.open(f))
-
-                            #print(highlightJson)
                             for highlight in highlightJson['highlights']:
                                 for x in highlight:
                                     myDocument['rawHighlight'].append(x)
@@ -94,11 +86,9 @@ def main():
         prevHighlight = None
 
         # Sort the highlights before we do anything
-        #pprint.pprint(sorted(document['rawHighlight'], key= lambda x: (x['page'], x['start'])))
+        # Attempting to fix an issue noticed with some being out of order
         document['rawHighlight'] = sorted(document['rawHighlight'], key= lambda x: (x['page'], x['start']))
-
         for highlight in document['rawHighlight']:
-            # print(highlight)
             hPage = highlight['page']
             hStart = highlight['start']
             hLength = highlight['length']
@@ -114,8 +104,6 @@ def main():
             nHighlight['end'] = hStart+hLength
             nHighlight['rows'] = 1
             nHighlight['add'] = True
-
-            #print(nHighlight)
 
             addHighlight = True
             if (prevHighlight != None):
