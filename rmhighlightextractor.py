@@ -113,7 +113,7 @@ def main():
                         # Don't add this one separately, append to the current one in the list
                         addHighlight = False
                         nHighlight['add'] = False
-                        normDoc['highlights'][-1]['text'] = ' '+hText
+                        normDoc['highlights'][-1]['text'] += ' '+hText
                         normDoc['highlights'][-1]['length'] += hLength
                         normDoc['highlights'][-1]['rows'] += 1
 
