@@ -69,14 +69,14 @@ def main():
                     myDocuments.append(myDocument)
     # Now that we're done reading the zips, process through the data
     for document in myDocuments:
-        print("Working on...", document['filename'])
+        #print("Working on...", document['filename'])
         authorString = ','.join(document['documentMetadata']['authors'])
-        print("\tAuthors -", authorString)
+        #print("\tAuthors -", authorString)
         # Default to zip if not title
         titleString = document['filename']
         if ('title' in document['documentMetadata']):
             titleString = document['documentMetadata']['title']
-        print("\tTitle -", titleString)
+        #print("\tTitle -", titleString)
 
         normDoc = {}
         normDoc['Title'] = titleString
@@ -135,10 +135,10 @@ def main():
             simpleHighlight['Page'] = highlight['page']
             simpleHighlights.append(simpleHighlight)
     if args.output_type == "screen":
-        print("Outputting to screen...")
+        #print("Outputting to screen...")
         pprint.pprint(simpleHighlights)
     elif args.output_type == "csv":
-        print("Outputting to CSV...")
+        #print("Outputting to CSV...")
         with open(args.output_file, "w", encoding="utf8", newline='') as f:
             wr = csv.DictWriter(f, delimiter=",",fieldnames=list(simpleHighlights[0].keys()))
             wr.writeheader()
